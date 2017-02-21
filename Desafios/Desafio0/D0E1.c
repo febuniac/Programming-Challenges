@@ -3,7 +3,8 @@
 Escreva uma função que:
 
 recebe um vetor de inteiros e o tamanho desse vetor;
-preenche o vetor com inteiros aleatórios, sobrescrevendo tudo o que estava nele antes.*/
+preenche o vetor com inteiros aleatórios, sobrescrevendo tudo o que estava nele antes.
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -13,12 +14,13 @@ preenche o vetor com inteiros aleatórios, sobrescrevendo tudo o que estava nele
 void preenchevetor (int vetor[],int n){
   int i;
   for(i=0; i< n ; i++){
-      vetor[i]= rand() % MAX_NUMBER;
+      vetor[i]= rand() % MAX_NUMBER; //rand ()= Retorna um inteiro entre 0 e RAND_MAX [RAND_MAX is a constant defined in <cstdlib>.](More at: http://www.cplusplus.com/reference/cstdlib/rand/)
+      // rand() % MAX_NUMBER = Truque para obter um inteiro aleatório entre 0 e (MAX_NUMBER – 1)
   }
 }
 
 int main(void) { 
-  srand(time(NULL));//inicializa a maquina de geração de números aleatorios
+  srand(time(NULL));//inicializa a maquina de geração de números aleátorios
   int n;
   int i;
   int vetor[MAX_NUMBER];
