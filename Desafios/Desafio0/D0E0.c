@@ -13,12 +13,10 @@ devolve 1 se o vetor está em ordem crescente e 0 caso contrário.*/
 int checacrescente(int vetor[], int num_elem) {
     int i;
     
-    for(i=0; i<num_elem;i++){
+    for(i=1; i<num_elem;i++){// i=1 pois nao é necessario checar o par nas posiçoes 0 e -1 (se um vetor tem n posições  ele tem n-1 pares)
         if (num_elem<=1){
-            return 1;
-                      
+            return 1;              
         }
-
         else if(vetor[i-1]>vetor[i]){ //já retorna de imediato caso o segundo numero seja menor que o primeiro (ou seja não esta em ordem crescente)
             return 0;
         }
