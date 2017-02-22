@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+#define MAX_NUMBER 100
+int soma (int v[], int n){
+	if (expoente==0){
+		return 1;
+	}
+	else{
+		return base* potencia(base, expoente-1);//recursão passando o valor de n-1 para a funcao fatorial
+	}
+}
+int main (int argc, char *argv[]) {
+    int v[MAX_NUMBER];
+    int num_elem;
+    int i;
+
+    /* Ler numero de elementos. */
+    printf("Quantos números terão o vetor? (não pode ser maior que %d): ",MAX_NUMBER);
+    scanf("%d",&num_elem);
+    
+    /* Ler os elementos. */
+    for (i = 0; i <num_elem; i++) {
+      scanf("%d", &vetor[i]);
+}
+    
