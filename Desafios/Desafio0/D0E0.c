@@ -24,6 +24,7 @@ int checacrescente(int vetor[], int num_elem) {
     return 1;// return está fora do loop aqui pois ele deve checar todas as vezes antes de responder se o vetor INTEIRO está em ordem crescente
 }
 
+/*MAIN*/
 int main(int argc, char *argv[]) {
   int num_elem;
   int vetor[MAXELEM];

@@ -19,6 +19,7 @@ void preenchevetor (int vetor[],int n){
   }
 }
 
+/*MAIN*/
 int main(void) { 
   srand(time(NULL));//inicializa a maquina de geração de números aleátorios
   int n;
