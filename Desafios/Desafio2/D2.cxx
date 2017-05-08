@@ -26,21 +26,17 @@ int main () {
   char caracter;
   int inteiro;
   std::vector<char> letters_vec;//vetor que guarda as letras
-  //std::vector<int> inteiros_vec;//vetor que guarda os inteiros
-
+  
 
   for (int i = 0; i < number_of_letters; i++) {
     is >> caracter;//pegando as letras
     letters_vec.push_back(caracter);//colocando as letras em um vector 
-    //std::cout<<"entrou a letra:"<<letters_vec[i]<<'\n';
-    //std::cout<<letters_vec[i];
+    
     
   }
   /*IMPRIMINDO O MAPA*/
   std::map<char,int>::iterator it = associa.begin();
-  //for (it=associa.begin(); it!=associa.end(); ++it){
-     //std::cout << it->first << " => " << it->second << '\n';
-    //}
+
 
 
   std::string operation;//pegando a operaçao interia como uma string de uma linha
@@ -61,8 +57,7 @@ int main () {
     for (int j = 0; j < number_of_letters; j++) {
       is >> inteiro;//pegando os inteiros e associando as letras colocando isto no map
       associa[letters_vec[j]]=inteiro;
-      //std::cout <<associa[letters_vec[j]]<<'\n';
-      //associa.insert( std::pair<char,int>(letters_vec[j],inteiro) );
+    
     }
     std::cout << "nova combinação do mapa"<<'\n';
     for (it=associa.begin(); it!=associa.end(); ++it){
@@ -71,9 +66,7 @@ int main () {
 
     for(std::string::size_type i = 0; i < operation.size(); ++i) {
       posic = operation[i];//pegando cada char da operação que é uma string
-      //std::cout<<operation[i]<<'\n';
-      //associa[i] = posic;
-      //std::cout<<associa[i]<<'\n';
+    
       switch (posic) {
         case '&':
           elem_1 = pilha.top();
@@ -105,13 +98,11 @@ int main () {
         default:
           pilha.push(associa[posic]);
           break;
-          //std::cout << "tamanho da pilha: " << pilha.size() << '\n'
+          
           
       }
     }
   answer = pilha.top();
-  //std::cout << "tamanho da pilha: " << pilha.size() << '\n';
-  //std::cout<<answer;
   pilha.pop();
   out << answer<<'\n';  
   num_combinations--;
