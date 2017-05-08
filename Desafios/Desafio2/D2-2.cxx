@@ -59,9 +59,6 @@ int main () {
     std::cout<<pairs_vec[j]<<'\n';
   }
   
-
-
-
     return 0;
 }
 
