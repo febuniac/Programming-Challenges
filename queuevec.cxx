@@ -1,32 +1,36 @@
-#include "stackvec.hxx"
+#include "queuevec.hxx"
 
 template <typename T>
-stackvec<T>::stackvec(int max) {
+queuevec<T>::queuevec(int max) {
   data = new T[max];
-  top = 0;
+  this-> max = max;
+  begin =max-1;
+  end =0;
 }
-
+ 
 template <typename T>
-stackvec<T>::~stackvec() {
+queuevec<T>::~queuevec() {
   delete[] data;
 }
 
 template <typename T>
-bool stackvec<T>::empty() {
-  if(top == 0) {
+bool queuevec<T>::empty() {
+  if(begin & end == 0) {
     return true;
   }
   return false;
 }
 
+
+
 template <typename T>
-void stackvec<T>::push(T value) {
-  data[top] = value;
-  top++;
+void queuevec<T>::enqueue(T value) {
+  data[end] = value;
+  end = (end+1)%max;
+  
 }
 
 template <typename T>
-T stackvec<T>::pop() {
-  top--;
-  return data[top];
+T queuevec<T>::dequeue() {
+
 }

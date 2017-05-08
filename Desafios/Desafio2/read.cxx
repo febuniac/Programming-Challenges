@@ -4,9 +4,9 @@
 #include <map>
 #include <stack>
 int main () {
-  int answer;//variavel que irá guardar a saida de cada caso.
-  std::ofstream out("saida.txt");//leitura do arquivo de saida
-  std::stack<int> pilha;// criando uma stack de nome pilha vazia
+  int answer;
+  std::ofstream out("saida.txt");
+  std::stack<int> pilha;                    // empty stack
   std::cout << "tamanho da pilha: " << pilha.size() << '\n';//mostra o tamanho da pilha
 
   char str[256];//def de uma string (vai ser o nome do meu arquivo)
@@ -18,31 +18,37 @@ int main () {
   std::map<char, int> associa;//cria um mapa(tipo dicionário) que associa um char à um int
 
 
-  char ch;//criando ch para ser o num de parametros recebido ainda como char
-  is >> ch;//colocando o primeiro digito do arquivo de entrada em ch
+  char ch;//criando ch para ser o num de parametrso recebido ainda como char
+  is >> ch;
   int number_of_letters = ch - '0';//transforma em int
   
   
   char caracter;
   int inteiro;
   std::vector<char> letters_vec;//vetor que guarda as letras
-  
+  //std::vector<int> inteiros_vec;//vetor que guarda os inteiros
+
 
   for (int i = 0; i < number_of_letters; i++) {
     is >> caracter;//pegando as letras
-    letters_vec.push_back(caracter);//colocando as letras em um vector  
+    letters_vec.push_back(caracter);//colocando as letras em um vector 
+    //std::cout<<"entrou a letra:"<<letters_vec[i]<<'\n';
+    //std::cout<<letters_vec[i];
+    
   }
-  
-  std::map<char,int>::iterator it = associa.begin();//inicializando o mapa
-
+  /*IMPRIMINDO O MAPA*/
+  std::map<char,int>::iterator it = associa.begin();
+  //for (it=associa.begin(); it!=associa.end(); ++it){
+     //std::cout << it->first << " => " << it->second << '\n';
+    //}
 
 
   std::string operation;//pegando a operaçao interia como uma string de uma linha
-  is >> operation;//colocando a linha de operação em operation
+  is >> operation;
 
   int num_combinations;
-  is >> num_combinations;//vendo as possiveis combinacoes (ex: 000,001...)
-  out<<num_combinations<<'\n';//colocando este valor no aqruivo de saida
+  is >> num_combinations;//vendo as possiveis combinacoes 
+  out<<num_combinations<<'\n';
 
   
   char posic;
@@ -54,9 +60,10 @@ int main () {
 
     for (int j = 0; j < number_of_letters; j++) {
       is >> inteiro;//pegando os inteiros e associando as letras colocando isto no map
-      associa[letters_vec[j]]=inteiro;//associando dentro do mapa os chars aos ints
+      associa[letters_vec[j]]=inteiro;
+      //std::cout <<associa[letters_vec[j]]<<'\n';
+      //associa.insert( std::pair<char,int>(letters_vec[j],inteiro) );
     }
-    /*Printando o Mapa*/
     std::cout << "nova combinação do mapa"<<'\n';
     for (it=associa.begin(); it!=associa.end(); ++it){
       std::cout << it->first << " => " << it->second << '\n';
@@ -64,16 +71,18 @@ int main () {
 
     for(std::string::size_type i = 0; i < operation.size(); ++i) {
       posic = operation[i];//pegando cada char da operação que é uma string
-    
+      //std::cout<<operation[i]<<'\n';
+      //associa[i] = posic;
+      //std::cout<<associa[i]<<'\n';
       switch (posic) {
         case '&':
-          elem_1 = pilha.top();//salva o primeiro da pilha em elem_1
-          pilha.pop();//remove este valor
-          elem_2 = pilha.top();//salva o novo primeiro da pilha em elem_2
-          pilha.pop();//remove este valor
-          operat = elem_1 & elem_2;//faz a operação
-          pilha.push(operat);//coloca o resultado na pilha
-          
+          elem_1 = pilha.top();
+          pilha.pop();
+          elem_2 = pilha.top();
+          pilha.pop();
+          operat = elem_1 & elem_2;
+          pilha.push(operat);
+          std::cout << "&";
           break;
         case '^':
           elem_1 = pilha.top();
@@ -82,7 +91,7 @@ int main () {
           pilha.pop();
           operat = elem_1 ^ elem_2;
           pilha.push(operat);
-          
+          std::cout << "^";
           break;
         case '|':
           elem_1 = pilha.top();
@@ -91,22 +100,24 @@ int main () {
           pilha.pop();
           operat = elem_1 | elem_2;
           pilha.push(operat);
-          
+          std::cout << "|";
           break;
         default:
-          pilha.push(associa[posic]);//coloca o valor da letra na pilha
+          pilha.push(associa[posic]);
           break;
-          
+          //std::cout << "tamanho da pilha: " << pilha.size() << '\n'
           
       }
     }
-  answer = pilha.top();//pega a resposta
-  pilha.pop();//remove da pilha
-  out << answer<<'\n';  //escreve no arquivo de saida,
+  answer = pilha.top();
+  //std::cout << "tamanho da pilha: " << pilha.size() << '\n';
+  //std::cout<<answer;
+  pilha.pop();
+  out << answer<<'\n';  
   num_combinations--;
   }      
-  is.close();//fecha input
-  out.close();//fecha output
+  is.close(); 
+  out.close();
 
 
   return 0;
