@@ -1,0 +1,9 @@
+8
+Paul Erdos:0
+Jaroslav Nesetril:1
+Pavol Hell:1
+Paul Graham:1
+Xiaotie Deng:2
+Amin Saberi:3
+Christos Papadimitriou:3
+Bill Gates:4
