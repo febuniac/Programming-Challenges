@@ -25,7 +25,7 @@ int main () {
   //std::string ch;//criando people para ser o num de parametros recebido ainda como char
   //std::getline(is, ch);//colocando o primeiro digito do arquivo de entrada em ch
   //int number_of_letters= atoi(ch.c_str());;//transforma em t
-
+  
   /*Pegando o numero de letras*/
   char ch;//criando ch para ser o num de parametros recebido ainda como char
   is >> ch;//colocando o primeiro digito do arquivo de entrada em ch
